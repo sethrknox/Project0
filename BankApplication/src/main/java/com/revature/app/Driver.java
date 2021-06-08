@@ -20,7 +20,6 @@ public class Driver {
 	private static TransferService ts = new TransferServiceImpl();
 	
 	public static void main(String[] args) {
-		//AppLogger.logger.warn("Warn using AppLogger class");
 		
 		boolean clickedQuit = false;
 		do {
@@ -28,7 +27,10 @@ public class Driver {
 			System.out.println("1. Login");
 			System.out.println("2. Create new account");
 			System.out.println("0. Quit");
-			int input = s.nextInt();
+			int input = 10;
+			if (s.hasNextInt()) {
+				input = s.nextInt();
+			}
 			// call nextLine() to get rid of \n after the integer scan
 			s.nextLine();
 			switch (input) {
@@ -60,7 +62,8 @@ public class Driver {
 		if (u == null) {
 			System.out.println("Invalid login credentials.");
 		} else {
-			System.out.println("Successfully logged in.");
+			AppLogger.logger.info("Logged in as user #" + u.getId());
+			System.out.println("Successfully logged in. Welcome " + u.getFirst() + " " + u.getLast());
 			switch(u.getType().toLowerCase()) {
 			case "customer": {
 				customer();
@@ -85,6 +88,7 @@ public class Driver {
 	
 	public static void customer() {
 		do {
+			System.out.println();
 			System.out.println("Choose a command below:");
 			System.out.println("1. Apply for new bank account");
 			System.out.println("2. View account");
@@ -92,7 +96,10 @@ public class Driver {
 			System.out.println("4. Deposit");
 			System.out.println("5. Transfers");
 			System.out.println("0. Logout");
-			int input = s.nextInt();
+			int input = 10;
+			if (s.hasNextInt()) {
+				input = s.nextInt();
+			}
 			// clear \n from input
 			s.nextLine();
 			switch (input) {
@@ -117,6 +124,7 @@ public class Driver {
 				break;
 			}
 			case 0: {
+				AppLogger.logger.info("Logged out");
 				System.out.println("Logged out");
 				u = null;
 				break;
@@ -131,12 +139,16 @@ public class Driver {
 	
 	public static void employee() {
 		do {
+			System.out.println();
 			System.out.println("Choose a command below: ");
 			System.out.println("1. View all pending accounts");
 			System.out.println("2. View a customer's accounts");
 			System.out.println("3. View all transaction logs");
 			System.out.println("0. Logout");
-			int input = s.nextInt();
+			int input = 10;
+			if (s.hasNextInt()) {
+				input = s.nextInt();
+			}
 			// clear \n from input
 			s.nextLine();
 			switch (input) {
@@ -153,6 +165,7 @@ public class Driver {
 				break;
 			}
 			case 0: {
+				AppLogger.logger.info("Logged out");
 				System.out.println("Logged out");
 				u = null;
 				break;

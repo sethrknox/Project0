@@ -8,15 +8,17 @@
         <File name="FILE" fileName="${basePath}/jmu_logfile.log" append="true">
             <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
         </File>
-        <!-- Console Appender -->
+        
+        <!-- Console Appender
         <Console name="STDOUT" target="SYSTEM_OUT">
             <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
         </Console>
+        -->
     </Appenders>
     <Loggers>
         <Logger name="com.jcg" level="debug" />
         <Root level="info">
-            <AppenderRef ref="STDOUT" />
+           <!--  <AppenderRef ref="STDOUT" />  -->
             <AppenderRef ref="FILE" />
         </Root>
     </Loggers>

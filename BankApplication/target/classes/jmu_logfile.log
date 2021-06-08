@@ -1,3 +1,15 @@
-WARN  | 2021-06-01 10:12:38 | [main] app.Driver (Driver.java:12) - Test warning message
-WARN  | 2021-06-01 15:24:06 | [main] app.Driver (Driver.java:9) - Warn using AppLogger class
-WARN  | 2021-06-02 09:31:29 | [main] app.Driver (Driver.java:9) - Warn using AppLogger class
+INFO  | 2021-06-07 22:44:26 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-07 22:46:30 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-07 22:46:35 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-07 22:46:38 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-07 22:49:15 | [main] app.Driver (Driver.java:65) - Logged in as user #2
+INFO  | 2021-06-07 22:49:39 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:30) - User #2 applied for new account
+INFO  | 2021-06-07 22:49:42 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-07 22:49:47 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-07 22:50:18 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-07 22:58:56 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-07 22:59:06 | [main] services.TransferServiceImpl (TransferServiceImpl.java:103) - User #1initiated a transfer from account #1 to account #2 for $150.0
+INFO  | 2021-06-07 22:59:08 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-07 22:59:13 | [main] app.Driver (Driver.java:65) - Logged in as user #2
+INFO  | 2021-06-07 22:59:27 | [main] services.TransferServiceImpl (TransferServiceImpl.java:167) - User #2accepted a transfer from account #1 to account #2 for $150.0
+INFO  | 2021-06-07 22:59:30 | [main] app.Driver (Driver.java:127) - Logged out

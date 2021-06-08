@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +52,7 @@ public class TransferRepoImpl implements TransferRepo {
 	public void addTransfer(Transfer t) {
 		// TODO Auto-generated method stub
 		String sql = "insert into project0.transfers values (default, ?, ?, ?, 'pending') returning *;";
-		String sql2 = "insert into project0.transactions values (default, 'transfer', ?, ?, ?) returning *;";
+		String sql2 = "call project0.create_transaction(?, ?, ?, ?)";
 		String sql3 = "update project0.accounts set balance = balance - ? where id = ? returning *;";
 		
 		try {
@@ -60,22 +61,24 @@ public class TransferRepoImpl implements TransferRepo {
 			ps.setDouble(2, t.getAmount());
 			ps.setInt(3, t.getReceiver_id());
 			ResultSet rs = ps.executeQuery();
-			
+
 			if (rs.next()) {
 				t.setTransfer_id(rs.getInt("id"));
 				
-				ps = conn.prepareStatement(sql2);
-				ps.setInt(1, t.getSender_id());
-				ps.setDouble(2, t.getAmount());
-				ps.setInt(3, t.getTransfer_id());
-				rs = ps.executeQuery();
-			}
-			if (rs.next()) {
+				CallableStatement cs = conn.prepareCall(sql2);
+				cs.setString(1, "transfer");
+				cs.setInt(2, t.getSender_id());
+				cs.setDouble(3, t.getAmount());
+				cs.setInt(4, t.getTransfer_id());
+				cs.execute();
+				
 				ps = conn.prepareStatement(sql3);
 				ps.setDouble(1, t.getAmount());
 				ps.setInt(2, t.getSender_id());
 				rs = ps.executeQuery();
+				
 			}
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

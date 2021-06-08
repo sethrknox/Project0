@@ -2,6 +2,7 @@ package com.revature.services;
 
 import java.util.Scanner;
 
+import com.revature.logging.AppLogger;
 import com.revature.models.User;
 import com.revature.repositories.UserRepo;
 import com.revature.repositories.UserRepoImpl;
@@ -42,6 +43,7 @@ public class UserServiceImpl implements UserService{
 		if("y".equalsIgnoreCase(input)) {
 			ur.addUser(u);
 			if (u.getId() != 0) {
+				AppLogger.logger.info("Registered account number: " + u.getId());
 				System.out.println("Account successfully created.");
 			} else {
 				System.out.println("Error creating account, please try again.");

@@ -2,6 +2,7 @@ package com.revature.services;
 
 import java.util.Scanner;
 
+import com.revature.logging.AppLogger;
 import com.revature.models.BankAccount;
 import com.revature.models.User;
 import com.revature.repositories.BankAccountRepo;
@@ -16,13 +17,23 @@ public class BankAccountServiceImpl implements BankAccountService {
 		System.out.println("Enter a name for your new bank account: ");
 		String name = s.nextLine();
 		System.out.println("Enter your starting balance");
-		double balance = s.nextDouble();
-		// clear \n
-		s.nextLine();
-		BankAccount ba = new BankAccount();
-		ba.setName(name);
-		ba.setBalance(balance);
-		bar.addAccount(u, ba);
+		double balance = 0;
+		if (s.hasNextDouble()) {
+			balance = s.nextDouble();
+			// clear \n
+			s.nextLine();
+			BankAccount ba = new BankAccount();
+			ba.setName(name);
+			ba.setBalance(balance);
+			bar.addAccount(u, ba);
+			if (ba.getId() != 0) {
+				AppLogger.logger.info("User #" + u.getId() + " applied for new account");
+				System.out.println("You have successfully sent a new account application");
+			}
+		} else {
+			System.out.println("Invalid input amount.");
+		}
+		
 	}
 
 	@Override
@@ -31,20 +42,26 @@ public class BankAccountServiceImpl implements BankAccountService {
 		bar.getAllAccounts(u);
 		System.out.println("Select the account id you want to view: ");
 		printAccounts(u);
-		int input = s.nextInt();
+		int input = 0;
+		if (s.hasNextInt()) {
+			input = s.nextInt();
+		} else {
+			System.out.println("Invalid input.");
+		}
 		// clear new line from scanner
 		s.nextLine();
 		for (BankAccount ba : u.getAccounts()) {
 			if (ba.getId() == input) {
 				if ("open".equalsIgnoreCase(ba.getStatus())) {
 					System.out.println("Balance of account " + input + ": " + ba.getBalance());
+					return;
 				} else if (!"open".equalsIgnoreCase(ba.getStatus())) {
 					System.out.println("That account is not open");
-				} else {
-					System.out.println("Account id not found");
+					return;
 				}
 			}
 		}
+		System.out.println("Account id not found");
 	}
 
 	@Override
@@ -53,7 +70,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 		bar.getAllAccounts(u);
 		System.out.println("Select an account you want to withdraw from: ");
 		printAccounts(u);
-		int input = s.nextInt();
+		int input = 0;
+		if (s.hasNextInt()) {
+			input = s.nextInt();
+		} else {
+			System.out.println("Invalid account id.");
+			return;
+		}
 		// clear new line from scanner
 		s.nextLine();
 		//find account from input id
@@ -63,7 +86,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 					//ask how much to withdraw and check that it does not overdraft
 					System.out.println("Balance of account " + input + ": " + ba.getBalance());
 					System.out.println("Enter the amount you want to withdraw: ");
-					double amount = s.nextDouble();
+					double amount = 0;
+					if (s.hasNextDouble()) {
+						amount = s.nextDouble();
+					} else {
+						System.out.println("Invalid input amount.");
+						return;
+					}
 					s.nextLine();
 					if (amount > ba.getBalance()) {
 						System.out.println("Error: Cannot overdraft with this account.");
@@ -72,6 +101,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 					} else {
 						bar.withdraw(ba, amount);
 						System.out.println("Successfully withdrawn: " + amount);
+						AppLogger.logger.info("User #" + u.getId() + " withdrew $" + amount);
 					}
 				} else {
 					System.out.println("Cannot withdraw from inactive accounts.");
@@ -88,7 +118,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 		bar.getAllAccounts(u);
 		System.out.println("Select an account you want to deposit into: ");
 		printAccounts(u);
-		int input = s.nextInt();
+		int input = 0;
+		if (s.hasNextInt()) {
+			input = s.nextInt();
+		} else {
+			System.out.println("Invalid account id.");
+			return;
+		}
 		// clear \n
 		s.nextLine();
 		//find account from input id
@@ -98,13 +134,20 @@ public class BankAccountServiceImpl implements BankAccountService {
 					//ask how much to deposit and check that it is not negative
 					System.out.println("Balance of account " + input + ": " + ba.getBalance());
 					System.out.println("Enter the amount you want to deposit: ");
-					double amount = s.nextDouble();
+					double amount = 0;
+					if (s.hasNextDouble()) {
+						amount = s.nextDouble();
+					} else {
+						System.out.println("Invalid input amount.");
+						return;
+					}
 					s.nextLine();
 					if (amount < 0) {
 						System.out.println("Error: Cannot deposit a negative amount.");
 					} else {
 						bar.deposit(ba, amount);
 						System.out.println("Successfully deposited: " + amount);
+						AppLogger.logger.info("User #" + u.getId() + " deposited $" + amount);
 					}
 				} else {
 					System.out.println("Cannot deposit into inactive accounts.");
@@ -121,7 +164,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 		bar.getAllPendingAccounts(u);
 		System.out.println("Select an account id you want to manage: ");
 		printAccounts(u);
-		int input = s.nextInt();
+		int input = 0;
+		if (s.hasNextInt()) {
+			input = s.nextInt();
+		} else {
+			System.out.println("Invalid account id.");
+			return;
+		}
 		s.nextLine();
 		
 		for (BankAccount ba : u.getAccounts()) {
@@ -150,7 +199,13 @@ public class BankAccountServiceImpl implements BankAccountService {
 		// TODO Auto-generated method stub
 		u.getAccounts().clear();
 		System.out.println("Enter the id of the customer's accounts you want to view: ");
-		int input = s.nextInt();
+		int input = 0;
+		if (s.hasNextInt()) {
+			input = s.nextInt();
+		} else {
+			System.out.println("Invalid account id.");
+			return;
+		}
 		s.nextLine();
 		User customer = new User();
 		customer.setId(input);
