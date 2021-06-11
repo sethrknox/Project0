@@ -13,3 +13,66 @@ INFO  | 2021-06-07 22:59:08 | [main] app.Driver (Driver.java:127) - Logged out
 INFO  | 2021-06-07 22:59:13 | [main] app.Driver (Driver.java:65) - Logged in as user #2
 INFO  | 2021-06-07 22:59:27 | [main] services.TransferServiceImpl (TransferServiceImpl.java:167) - User #2accepted a transfer from account #1 to account #2 for $150.0
 INFO  | 2021-06-07 22:59:30 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-09 14:23:10 | [main] services.UserServiceImpl (UserServiceImpl.java:50) - Registered account number: 4
+INFO  | 2021-06-09 14:23:29 | [main] app.Driver (Driver.java:65) - Logged in as user #4
+INFO  | 2021-06-09 14:23:56 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-09 14:26:02 | [main] app.Driver (Driver.java:65) - Logged in as user #4
+INFO  | 2021-06-09 14:26:53 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:30) - User #4 applied for new account
+INFO  | 2021-06-09 14:27:35 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-09 14:27:43 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-09 14:29:05 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-09 14:29:27 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-09 14:30:01 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:112) - User #1 withdrew $40.0
+INFO  | 2021-06-09 14:30:17 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:162) - User #1 deposited $200.0
+INFO  | 2021-06-09 14:30:50 | [main] services.TransferServiceImpl (TransferServiceImpl.java:107) - User #1 initiated a transfer from account #1 to account #3 for $200.0
+INFO  | 2021-06-09 14:31:14 | [main] services.TransferServiceImpl (TransferServiceImpl.java:171) - User #1 accepted a transfer from account #1 to account #3 for $200.0
+INFO  | 2021-06-09 14:32:17 | [main] services.TransferServiceImpl (TransferServiceImpl.java:107) - User #1 initiated a transfer from account #3 to account #4 for $200.0
+INFO  | 2021-06-09 14:32:21 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-09 14:32:26 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-09 14:33:09 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-09 14:33:16 | [main] app.Driver (Driver.java:65) - Logged in as user #4
+INFO  | 2021-06-09 14:33:50 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-09 14:33:57 | [main] app.Driver (Driver.java:65) - Logged in as user #2
+INFO  | 2021-06-09 14:34:28 | [main] services.TransferServiceImpl (TransferServiceImpl.java:171) - User #2 accepted a transfer from account #3 to account #4 for $200.0
+INFO  | 2021-06-09 14:34:45 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 08:54:32 | [main] app.Driver (Driver.java:65) - Logged in as user #4
+INFO  | 2021-06-10 08:54:52 | [main] services.TransferServiceImpl (TransferServiceImpl.java:107) - User #4 initiated a transfer from account #5 to account #1 for $150.0
+INFO  | 2021-06-10 08:54:59 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 08:58:10 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 08:58:20 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 08:58:27 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-10 08:58:40 | [main] services.TransferServiceImpl (TransferServiceImpl.java:175) - User #1 rejected a transfer from account #5 to account #1 for $150.0
+INFO  | 2021-06-10 08:58:44 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:11:26 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:11:33 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:12:20 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:12:24 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:16:01 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-10 10:16:08 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:29:34 | [main] services.UserServiceImpl (UserServiceImpl.java:50) - Registered account number: 5
+INFO  | 2021-06-10 10:29:42 | [main] app.Driver (Driver.java:65) - Logged in as user #5
+INFO  | 2021-06-10 10:30:07 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:30) - User #5 applied for new account
+INFO  | 2021-06-10 10:30:30 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:30:35 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:31:01 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:31:08 | [main] app.Driver (Driver.java:65) - Logged in as user #5
+INFO  | 2021-06-10 10:31:24 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:112) - User #5 withdrew $50.0
+INFO  | 2021-06-10 10:31:37 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:162) - User #5 deposited $150.0
+INFO  | 2021-06-10 10:32:18 | [main] services.TransferServiceImpl (TransferServiceImpl.java:107) - User #5 initiated a transfer from account #6 to account #1 for $100.0
+INFO  | 2021-06-10 10:32:32 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:32:37 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-10 10:33:05 | [main] services.TransferServiceImpl (TransferServiceImpl.java:171) - User #1 accepted a transfer from account #6 to account #1 for $100.0
+INFO  | 2021-06-10 10:33:30 | [main] services.TransferServiceImpl (TransferServiceImpl.java:107) - User #1 initiated a transfer from account #1 to account #3 for $150.0
+INFO  | 2021-06-10 10:33:46 | [main] services.TransferServiceImpl (TransferServiceImpl.java:171) - User #1 accepted a transfer from account #1 to account #3 for $150.0
+INFO  | 2021-06-10 10:33:48 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:33:53 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:34:06 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:35:25 | [main] services.UserServiceImpl (UserServiceImpl.java:50) - Registered account number: 6
+INFO  | 2021-06-10 10:35:27 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:35:33 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:35:40 | [main] app.Driver (Driver.java:65) - Logged in as user #1
+INFO  | 2021-06-10 10:35:48 | [main] services.BankAccountServiceImpl (BankAccountServiceImpl.java:30) - User #1 applied for new account
+INFO  | 2021-06-10 10:35:49 | [main] app.Driver (Driver.java:127) - Logged out
+INFO  | 2021-06-10 10:35:51 | [main] app.Driver (Driver.java:65) - Logged in as user #3
+INFO  | 2021-06-10 10:36:19 | [main] app.Driver (Driver.java:168) - Logged out
+INFO  | 2021-06-10 10:36:23 | [main] app.Driver (Driver.java:65) - Logged in as user #1

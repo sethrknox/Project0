@@ -55,6 +55,10 @@ public class TransferServiceImpl implements TransferService {
 	@Override
 	public void createTransfer(User u, Scanner s) {
 		tr.getAllAccounts(u);
+		if (u.getAccounts().isEmpty()) {
+			System.out.println("You do not have any open accounts.");
+			return;
+		}
 		System.out.println("Select the account id you want to transfer from: ");
 		printAccounts(u);
 		int input = 0;

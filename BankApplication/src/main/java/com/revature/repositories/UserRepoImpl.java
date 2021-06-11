@@ -66,4 +66,26 @@ public class UserRepoImpl implements UserRepo {
 		return null;
 	}
 
+	@Override
+	public boolean exists(String username) {
+		// TODO Auto-generated method stub
+		String sql = "select * from project0.users where username = ?";
+		
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	
+
 }

@@ -40,6 +40,10 @@ public class BankAccountServiceImpl implements BankAccountService {
 	public void viewAccount(User u, Scanner s) {
 		// TODO Auto-generated method stub
 		bar.getAllAccounts(u);
+		if (u.getAccounts().isEmpty()) {
+			System.out.println("You do not have any open accounts.");
+			return;
+		}
 		System.out.println("Select the account id you want to view: ");
 		printAccounts(u);
 		int input = 0;
@@ -68,6 +72,10 @@ public class BankAccountServiceImpl implements BankAccountService {
 	public void withdraw(User u, Scanner s) {
 		// TODO Auto-generated method stub
 		bar.getAllAccounts(u);
+		if (u.getAccounts().isEmpty()) {
+			System.out.println("You do not have any open accounts.");
+			return;
+		}
 		System.out.println("Select an account you want to withdraw from: ");
 		printAccounts(u);
 		int input = 0;
@@ -116,6 +124,10 @@ public class BankAccountServiceImpl implements BankAccountService {
 	public void deposit(User u, Scanner s) {
 		// TODO Auto-generated method stub
 		bar.getAllAccounts(u);
+		if (u.getAccounts().isEmpty()) {
+			System.out.println("You do not have any open accounts.");
+			return;
+		}
 		System.out.println("Select an account you want to deposit into: ");
 		printAccounts(u);
 		int input = 0;
@@ -162,6 +174,10 @@ public class BankAccountServiceImpl implements BankAccountService {
 		// TODO Auto-generated method stub
 		u.getAccounts().clear();
 		bar.getAllPendingAccounts(u);
+		if (u.getAccounts().isEmpty()) {
+			System.out.println("There are no pending accounts.");
+			return;
+		}
 		System.out.println("Select an account id you want to manage: ");
 		printAccounts(u);
 		int input = 0;

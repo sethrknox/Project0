@@ -18,9 +18,11 @@ public class Driver {
 	private static UserService us = new UserServiceImpl();
 	private static BankAccountService bas = new BankAccountServiceImpl();
 	private static TransferService ts = new TransferServiceImpl();
+	public static final String ANSI_GREEN = "\u001B[32m";
 	
 	public static void main(String[] args) {
 		
+		System.out.println("Welcome to Seth's Bank\n");
 		boolean clickedQuit = false;
 		do {
 			System.out.println("Choose a command below:");

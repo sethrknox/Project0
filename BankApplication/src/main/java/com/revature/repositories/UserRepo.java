@@ -6,4 +6,5 @@ public interface UserRepo {
 
 	public void addUser(User u);
 	public User getUser(String username, String password);
+	public boolean exists(String username);
 }

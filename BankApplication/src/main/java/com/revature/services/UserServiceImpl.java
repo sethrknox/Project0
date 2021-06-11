@@ -40,6 +40,10 @@ public class UserServiceImpl implements UserService{
 		System.out.println("Name: " + u.getFirst() + " " + u.getLast());
 		System.out.println("Is this information correct? (y/n)");
 		String input = s.nextLine();
+		if(ur.exists(u.getUsername())) {
+			System.out.println("That username is unavailable, please try again.");
+			return;
+		}
 		if("y".equalsIgnoreCase(input)) {
 			ur.addUser(u);
 			if (u.getId() != 0) {
